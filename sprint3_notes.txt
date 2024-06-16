@@ -1,0 +1,60 @@
+Regression----------------------------------------------------
+Linear--------------------------------------------------------
+
+Parametric approach:
+- The potential disadvantage of a parametric approach is that the model we choose
+will usually not match the true unknown form of f.
+- If the chosen model is too far from the true f, then our estimate will be poor.
+
+Non-parametric approach:
+- since they do not reduce the problem of estimating f to a
+small number of parameters, a very large number of observations (far more
+than is typically needed for a parametric approach) is required in order to
+obtain an accurate estimate for f.
+
+
+Simple random samples (SRS):
+- When fitting models to data from SRS (Simple random samples), select distributions
+for variables with important property that all observations in data are indepenent.
+
+Clustered samples:
+- These arise from study designs that generate clusters of related observations.
+- Because observations from same naturally occurring cluster will tend to be similar
+to each other, need to account for this correlation when fitting model to data.
+
+Longitudinal data:
+- Repeated measures of same variable, collected from same unit over time (likely correlated).
+- Recorded observations on variable of interest no longer completely independedt of each other.
+- Models fit to repeatedly-measured variables need to account for within-unit correlation.
+
+Two main objectives of Model Fitting:
+1) Making inference about relationships between variables in a given data set.
+2) Making predictions/forecasting future outcomes, based on models estimated using historical data.
+
+
+Libraries:
+LINK: https://www.coursera.org/learn/fitting-statistical-models-data-python/ungradedLab/YlCQ9/python-libraries/lab?path=%2Fnotebooks%2Fweek1%2Fpython_libraries.ipynb
+
+statsmodels.stats.descriptivestats.describe(df["column"]) - gives statistics like pandas about data
+OLS (Ordinary Least Squares) - for linear models
+GLM (Generalized Linear Models) - for nonlinear mean structures and non-constant variance.
+GEE (Generalize Estimated Equations) - for linear models but the new way, when the data are non-independent.
+MIXEDLM (Multilevel Models)
+
+model = sm.OLS.from_formula("BPXSY1 ~ RIDAGEYR + RIAGENDRx", data=da)
+res = model.fit()
+
+model = sm.GLM.from_formula("smq ~ RIDAGEYR + RIAGENDRx", family=sm.families.Binomial(), data=da)
+res = model.fit()
+
+model = sm.GEE.from_formula("BPXSY1 ~ RIDAGEYR + RIAGENDRx", groups="group", cov_struct=sm.cov_struct.Exchangeable(), data=da)
+res = model.fit()
+
+model = sm.MixedLM.from_formula("BPXSY1 ~ RIDAGEYR + RIAGENDRx + BMXBMI + smq", groups="group", data=db)
+res = model.fit()
+
+OLS: https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html
+GLM: https://www.statsmodels.org/stable/glm.html
+GEE: https://www.statsmodels.org/stable/gee.html
+MIXEDLM: https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html
+
