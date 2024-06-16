@@ -31,7 +31,7 @@ def f_histogram(
     return plt.show()
 
 
-def f_boxplot(xaxis, figsize=(6, 4), xlabel=None, title=None):
+def f_barplot(xaxis, figsize=(6, 4), xlabel=None, title=None):
     import matplotlib.pyplot as plt
     import seaborn as sns
 
@@ -48,5 +48,37 @@ def f_boxplot(xaxis, figsize=(6, 4), xlabel=None, title=None):
     plt.xlabel(xlabel)
     plt.title(title, size=14, fontweight="bold", ha="center")
     plt.legend()
+
+    return plt.show()
+
+
+def f_boxplot(
+    data=None,
+    xaxis=None,
+    yaxis=None,
+    hue=None,
+    figsize=(5, 3),
+    showfliers=False,
+    ylabel=None,
+    title=None,
+):
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    plt.figure(figsize=figsize)
+    sns.boxplot(
+        data=data,
+        x=xaxis,
+        y=yaxis,
+        hue=hue,
+        showfliers=showfliers,
+        flierprops=dict(markerfacecolor="red", marker="o"),
+        width=0.9,
+        palette="deep",
+    )
+    plt.ylabel(ylabel)
+    plt.title(title, size=14, fontweight="bold", ha="center")
+    plt.tight_layout()
+    plt.legend().remove()
 
     return plt.show()
