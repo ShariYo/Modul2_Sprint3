@@ -16,6 +16,17 @@ def cleaner(df, info=True):
     return df
 
 
+def calc_vif(x):
+    from statsmodels.stats.outliers_influence import variance_inflation_factor
+    import pandas as pd
+
+    vif = pd.DataFrame()
+    vif["variables"] = x.columns
+    vif["VIF"] = [variance_inflation_factor(x.values, i) for i in range(x.shape[1])]
+
+    return vif
+
+
 def f_histogram(
     xaxis, bins=20, kde=False, figsize=(6, 4), label=None, xlabel=None, title=None
 ):
