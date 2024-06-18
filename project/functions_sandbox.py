@@ -27,6 +27,16 @@ def calc_vif(x):
     return vif
 
 
+def remove_outliers_iqr(df, column):
+    Q1 = df[column].quantile(0.25)
+    Q3 = df[column].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+
+    return df[(df[column] >= lower_bound) & (df[column] <= upper_bound)]
+
+
 def f_histogram(
     xaxis, bins=20, kde=False, figsize=(6, 4), label=None, xlabel=None, title=None
 ):
@@ -93,3 +103,11 @@ def f_boxplot(
     plt.legend().remove()
 
     return plt.show()
+
+
+# volatile acidity
+# citric acid
+# residual sugar
+# sulphates
+# alcohol
+# chlorides?
