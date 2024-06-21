@@ -37,6 +37,15 @@ def remove_outliers_iqr(df, column):
     return df[(df[column] >= lower_bound) & (df[column] <= upper_bound)]
 
 
+def reg_formula(model, X):
+    coefficients = model.params
+    formula = f"y = {coefficients.iloc[0]:.4f}"
+    for i in range(1, len(coefficients)):
+        formula += f" + {coefficients.iloc[i]:.4f}*{X.columns[i]}"
+
+    return formula
+
+
 def f_histogram(
     xaxis, bins=20, kde=False, figsize=(6, 4), label=None, xlabel=None, title=None
 ):
