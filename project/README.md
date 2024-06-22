@@ -1,5 +1,5 @@
 
-# Fast Food Market and Cookie Cat game analysis
+# Red Wine Quality
 
 This is a study on Red Wine Quality with a given dataset of different chemical parameters of Wine. Purpose of the project is to understand and analyse which parameters impacts Wine Quality the most.
 
