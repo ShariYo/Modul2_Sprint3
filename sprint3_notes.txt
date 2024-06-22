@@ -58,3 +58,33 @@ GLM: https://www.statsmodels.org/stable/glm.html
 GEE: https://www.statsmodels.org/stable/gee.html
 MIXEDLM: https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html
 
+F-statistic: overall significance of the model
+
+prob F-statistic: p-value associated with the F-statistic
+
+R-squared: proportion of the variance in the dependent variable that is predictable from the independent variables in the linear regression
+
+p-value: measures statistical significance of the experiment
+
+constant coef: it is INTERCEPT and represents the expecetd mean value of the dependent variable when all predictors are zero
+
+standard error: measures the average distance that the observed values fall from the regression line
+
+t-value: used to test the hypothesis that a coefficient is different from zero.
+
+
+stepwise regression
+heterodescisity
+accuracy when balanced
+requirements.txt
+too much plots and moduls in readme
+type hints
+docs strings
+normal dist
+boxplot colors should be meaningful
+regression wasn't evaluated with 20% of the data
+
+
+
+
+
